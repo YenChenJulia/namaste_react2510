@@ -4,6 +4,10 @@
   border: solid 1px black;
 }
 
+.logo-container {
+  padding: 15px;
+}
+
 .logo {
   width: 100px;
 }

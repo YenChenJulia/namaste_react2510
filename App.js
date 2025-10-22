@@ -4,10 +4,10 @@ import { createRoot } from "react-dom/client";
 const Header = () => {
   return (
     <div className="header">
-      <div>
+      <div className="logo-container">
         <img
           className="logo"
-          src="https://www.shutterstock.com/image-vector/mobile-accessories-shop-logo-design-260nw-1971174995.jpg"
+          src="https://shoplineimg.com/5d04dbdc2415b30001d56de4/5ea81425476b600036c5648c/450x.webp?source_format=png"
           alt="logo"
         />
       </div>
