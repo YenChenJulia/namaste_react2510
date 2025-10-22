@@ -25,3 +25,26 @@
   margin: 10px;
   font-size: 20px;
 }
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-card {
+  margin: 5px;
+  width: 200px;
+  padding: 5px;
+}
+
+.product-card:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.search {
+  padding: 10px;
+}
+
+.product-logo {
+  width: 100%;
+}
