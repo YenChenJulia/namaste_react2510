@@ -1,0 +1,1 @@
+export const logo_url = "https://shoplineimg.com/5d04dbdc2415b30001d56de4/5ea81425476b600036c5648c/450x.webp?source_format=png"

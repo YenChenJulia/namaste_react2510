@@ -1,0 +1,68 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: solid 1px black;
+}
+
+.logo-container {
+  padding: 15px;
+}
+
+.logo {
+  width: 100px;
+}
+
+.nav-items {
+  padding: 0px 2px;
+}
+.nav-items > ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-card {
+  margin: 5px;
+  width: 200px;
+  padding: 5px;
+}
+
+.product-card:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.search {
+  padding: 10px;
+}
+
+.product-logo {
+  width: 100%;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 400px;
+  margin: 10px;
+  background-color: aliceblue;
+}
+
+.login-btn {
+  background-color: lightcyan;
+  padding: 0 20px;
+  border: 1px solid black;
+}
