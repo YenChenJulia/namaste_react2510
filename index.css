@@ -60,3 +60,9 @@
   margin: 10px;
   background-color: aliceblue;
 }
+
+.login-btn {
+  background-color: lightcyan;
+  padding: 0 20px;
+  border: 1px solid black;
+}
