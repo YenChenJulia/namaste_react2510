@@ -1,29 +1,4 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://shoplineimg.com/5d04dbdc2415b30001d56de4/5ea81425476b600036c5648c/450x.webp?source_format=png"
-          alt="logo"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About us</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const productList = [
+export const productList = [
   {
     id: 1,
     name: "粉晶（Rose Quartz）",
@@ -130,40 +105,3 @@ const productList = [
     price: 770,
   },
 ];
-
-const ProductCard = ({ product }) => {
-  const { name, price, ingredients } = product;
-  return (
-    <div className="product-card" style={{ backgroundColor: "aliceblue" }}>
-      <h3>{name}</h3>
-      <h4>{ingredients?.join(",")}</h4>
-      <h4>NT${price}</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">search</div>
-      <div className="product-container">
-        {productList.map((pro) => (
-          <ProductCard key={pro.id} product={pro} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
