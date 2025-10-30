@@ -28,11 +28,9 @@ const Body = () => {
     }
   };
 
-  if (listOfProduct.length === 0) {
-    return <Shimmer />;
-  }
-
-  return (
+  return listOfProduct.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="search">
         <button
