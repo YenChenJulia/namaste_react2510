@@ -3,7 +3,9 @@ import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 
 const Body = () => {
+  const [ProductsOnScreen, setProductsOnScreen] = useState([]);
   const [listOfProduct, setListOfProduct] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -23,12 +25,13 @@ const Body = () => {
       const data = await fetch("http://localhost:8000/api/products");
       const json = await data.json();
       setListOfProduct(json);
+      setProductsOnScreen(json);
     } catch (error) {
       console.error(error);
     }
   };
 
-  return listOfProduct.length === 0 ? (
+  return ProductsOnScreen.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -53,17 +56,17 @@ const Body = () => {
         </div>
         <button
           onClick={() => {
-            const filterList = productList.filter(
+            const filterList = listOfProduct.filter(
               (product) => product.rating > 4.5
             );
-            setListOfProduct(filterList);
+            setProductsOnScreen(filterList);
           }}
         >
           top rating products
         </button>
       </div>
       <div className="product-container">
-        {listOfProduct.map((pro) => (
+        {ProductsOnScreen.map((pro) => (
           <ProductCard key={pro.id} product={pro} />
         ))}
       </div>
