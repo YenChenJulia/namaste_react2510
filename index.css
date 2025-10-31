@@ -43,6 +43,12 @@
 
 .search {
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.keyword-search {
+  display: flex;
 }
 
 .product-logo {

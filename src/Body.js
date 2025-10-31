@@ -33,6 +33,24 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="search">
+        <div className="keyword-search">
+          <input
+            type="text"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          ></input>
+          <button
+            onClick={() => {
+              const filteredProducts = listOfProduct.filter((e) =>
+                e.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+
+              setProductsOnScreen(filteredProducts);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           onClick={() => {
             const filterList = productList.filter(
