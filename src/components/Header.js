@@ -1,4 +1,4 @@
-import { logo_url } from "./utils/constants";
+import { logo_url } from "../utils/constants";
 import { useState } from "react";
 
 const Header = () => {

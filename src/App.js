@@ -1,10 +1,9 @@
 // import React from "react";
 import { createRoot } from "react-dom/client";
-import Header from "./Header";
-import Body from "./Body";
-
-
-
+import Header from "./components/Header";
+import Body from "./components/Body";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./components/About";
 
 const AppLayout = () => {
   return (
