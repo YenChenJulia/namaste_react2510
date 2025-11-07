@@ -1,6 +1,7 @@
 import ProductCard from "./ProductCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [ProductsOnScreen, setProductsOnScreen] = useState([]);
@@ -30,6 +31,15 @@ const Body = () => {
       console.error(error);
     }
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h2>
+        looks like you are offline! please check your internet connection!
+      </h2>
+    );
+  }
 
   return ProductsOnScreen.length === 0 ? (
     <Shimmer />
