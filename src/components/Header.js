@@ -5,7 +5,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("login");
-  const onlineStatus = useOnlineStatus()
+  const onlineStatus = useOnlineStatus();
 
   return (
     <div className="header">
@@ -24,7 +24,9 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>Cart</li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
+          </li>
           <li
             className="login-btn"
             onClick={() => {
