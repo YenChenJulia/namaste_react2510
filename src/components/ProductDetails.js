@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react";
-import { MENU_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import useProductDetail from "../utils/useProductDetail";
 import { useParams } from "react-router";
 
 const ProductDetails = () => {
-	const productName = useParams()
-	
-  const [productInfo, setProductInfo] = useState(null);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const data = await fetch(MENU_URL+productName.product);
-      const json = await data.json();
-      setProductInfo(json);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const productName = useParams();
+  const productInfo = useProductDetail(productName.product);
 
   if (productInfo === null) {
     return <Shimmer />;
