@@ -44,22 +44,24 @@ const Body = () => {
   return ProductsOnScreen.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="search">
-        <div className="keyword-search">
+    <div className="body px-4 py-6 md:px-6 md:py-8 max-w-7xl mx-auto">
+      <div className="search mb-6 md:mb-8">
+        <div className="keyword-search flex flex-col sm:flex-row gap-3 md:gap-4 items-stretch sm:items-center mb-4">
           <input
             type="text"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-          ></input>
+            placeholder="Search products..."
+            className="flex-1 px-4 py-2.5 md:py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 transition-colors text-base"
+          />
           <button
             onClick={() => {
               const filteredProducts = listOfProduct.filter((e) =>
                 e.name.toLowerCase().includes(searchText.toLowerCase())
               );
-
               setProductsOnScreen(filteredProducts);
             }}
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 md:py-2 rounded-lg font-medium transition-colors whitespace-nowrap"
           >
             Search
           </button>
@@ -71,11 +73,12 @@ const Body = () => {
             );
             setProductsOnScreen(filterList);
           }}
+          className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 md:py-2 rounded-lg font-medium transition-colors"
         >
-          top rating products
+          Top Rated (4.5+)
         </button>
       </div>
-      <div className="product-container">
+      <div className="product-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {ProductsOnScreen.map((pro) => (
           <ProductCard key={pro.id} product={pro} />
         ))}
