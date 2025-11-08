@@ -17,4 +17,17 @@ const ProductCard = ({ product }) => {
   );
 };
 
+export const withPromoteLabel = (ProductCard) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <label className="absolute -top-7 -left-5 bg-black text-sm text-white m-2 p-2 rounded-lg">
+          Promoted
+        </label>
+        <ProductCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default ProductCard;

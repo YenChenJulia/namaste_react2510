@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard";
+import ProductCard, { withPromoteLabel } from "./ProductCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -7,6 +7,7 @@ const Body = () => {
   const [ProductsOnScreen, setProductsOnScreen] = useState([]);
   const [listOfProduct, setListOfProduct] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const PromotedProductCard = withPromoteLabel(ProductCard);
 
   useEffect(() => {
     fetchData();
@@ -79,10 +80,19 @@ const Body = () => {
         </button>
       </div>
       <div className="product-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        {ProductsOnScreen.map((pro) =>
+          pro.rating > 4.5 ? (
+            <PromotedProductCard key={pro.id} product={pro} />
+          ) : (
+            <ProductCard key={pro.id} product={pro} />
+          )
+        )}
+      </div>
+      {/* <div className="product-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {ProductsOnScreen.map((pro) => (
           <ProductCard key={pro.id} product={pro} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
