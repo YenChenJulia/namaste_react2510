@@ -1,13 +1,15 @@
 import ProductCard, { withPromoteLabel } from "./ProductCard";
 import Shimmer from "./Shimmer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [ProductsOnScreen, setProductsOnScreen] = useState([]);
   const [listOfProduct, setListOfProduct] = useState([]);
   const [searchText, setSearchText] = useState("");
   const PromotedProductCard = withPromoteLabel(ProductCard);
+  const { name, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -46,6 +48,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body px-4 py-6 md:px-6 md:py-8 max-w-7xl mx-auto">
+      <h1>{name}</h1>
       <div className="search mb-6 md:mb-8">
         <div className="keyword-search flex flex-col sm:flex-row gap-3 md:gap-4 items-stretch sm:items-center mb-4">
           <input
@@ -78,6 +81,15 @@ const Body = () => {
         >
           Top Rated (4.5+)
         </button>
+        <div className="user-name-input">
+          <label>User Name:</label>
+          <input
+            type="text"
+            className="p-2 font-bold"
+            value={name}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
       <div className="product-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {ProductsOnScreen.map((pro) =>
