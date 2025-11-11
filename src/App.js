@@ -10,6 +10,8 @@ import ProductDetails from "./components/ProductDetails";
 import { lazy, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery";
+import { Provider } from "react-redux";
+import appStore from "./utils/AppStore";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState(null);
@@ -20,12 +22,14 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ name: userName, setUserName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ name: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
