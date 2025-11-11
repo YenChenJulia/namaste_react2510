@@ -1,5 +1,12 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+
 const ProductCard = ({ product }) => {
   const { name, price, ingredients, rating } = product;
+  const dispatch = useDispatch();
+  const handleAddItem = () => {
+    dispatch(addItem("rock"));
+  };
   return (
     <div className="product-card bg-blue-50 rounded-lg p-4 shadow-md hover:shadow-xl transition-shadow">
       <h3 className="text-lg font-bold mb-2 text-gray-800 truncate">{name}</h3>
@@ -12,6 +19,14 @@ const ProductCard = ({ product }) => {
           <span className="text-yellow-500">★</span>
           {rating}
         </h4>
+      </div>
+      <div>
+        <button
+          className="login-btn bg-orange-500 hover:bg-orange-600 text-white px-4 lg:px-6 py-2 rounded-lg transition-colors cursor-pointer"
+          onClick={handleAddItem}
+        >
+          add
+        </button>
       </div>
     </div>
   );
