@@ -75,7 +75,7 @@ const Header = () => {
               <Link to="/grocery">Grocery</Link>
             </li>
             <li className="hover:text-orange-500 transition-colors">
-              Cart - {cartItems.length} items
+              <Link to="/cart">Cart - {cartItems.length} items</Link>
             </li>
             <li>
               <button
